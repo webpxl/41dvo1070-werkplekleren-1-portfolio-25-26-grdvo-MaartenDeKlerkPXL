@@ -1366,7 +1366,7 @@ body {
 
 /* Animatie voor kaarten die verdwijnen */
 .project-card.hidden {
-    display: none;
+    display: none !important;
 }
 
 @media (max-width: 768px) {
