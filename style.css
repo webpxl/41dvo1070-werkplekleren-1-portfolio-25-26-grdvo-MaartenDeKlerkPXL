@@ -265,11 +265,18 @@ body {
     box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
 }
 
+/*.nav-btn:hover {*/
+/*    background: var(--gradient-hover);*/
+/*    box-shadow: 0 8px 25px rgba(6, 182, 212, 0.4);*/
+/*    transform: translateY(-2px);*/
+/*    color: white;*/
+/*}*/
 .nav-btn:hover {
-    background: var(--gradient-hover);
-    box-shadow: 0 8px 25px rgba(6, 182, 212, 0.4);
+    background: var(--gradient-hover) !important; /* Behoudt de blauwe gradiënt */
+    color: #ffffff !important; /* Forceert de tekst naar wit */
     transform: translateY(-2px);
-    color: white;
+    box-shadow: 0 8px 25px rgba(6, 182, 212, 0.4);
+    text-decoration: none;
 }
 
 .nav-toggle {
@@ -577,6 +584,214 @@ body {
     grid-template-columns: 1fr 1fr;
     gap: 5rem;
     align-items: center;
+}
+/* --- Fun Facts Feature --- */
+
+.fun-fact-wrapper {
+    position: relative;
+    display: inline-block;
+    margin-top: 2.5rem; /* Ruimte boven de knop */
+}
+
+/* De knop zelf */
+.fun-fact-btn {
+    background: white;
+    border: 2px solid var(--blue-100);
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    color: var(--blue-600);
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.fun-fact-btn:hover {
+    border-color: var(--blue-400);
+    background: var(--blue-50);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.15);
+}
+
+.btn-icon {
+    font-size: 1.2rem;
+    animation: wiggle 2s infinite ease-in-out; /* Speels effectje */
+}
+
+/* --- Fun Facts Feature (Versie 2: Groter & Strakker) --- */
+
+.fun-fact-card {
+    position: absolute;
+    bottom: 140%; /* Iets hoger omdat hij groter is */
+    left: 0;
+
+    /* AANPASSING: Breedte aangepast van 320px naar 450px */
+    width: 450px;
+
+    background: white;
+    padding: 2rem; /* Meer ruimte binnenin */
+    border-radius: 1.5rem;
+    box-shadow: 0 25px 50px -12px rgba(30, 58, 138, 0.25);
+    border: 1px solid var(--blue-100);
+
+    /* AANPASSING: Dit zorgt dat het lijntje erin blijft! */
+    overflow: hidden;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px) scale(0.95);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 100;
+}
+
+/* Tekst ook iets groter maken voor de balans */
+.fun-fact-card h4 {
+    color: var(--blue-600);
+    margin-bottom: 1.25rem;
+    font-size: 1.3rem; /* Groter */
+    font-weight: 800;
+}
+
+.fact-list li {
+    font-size: 1rem; /* Groter (was 0.9rem) */
+    margin-bottom: 1rem;
+}
+
+/* Mobiele aanpassing update */
+@media (max-width: 768px) {
+    .fun-fact-card {
+        width: 90vw; /* Op mobiel bijna schermbreedte */
+        max-width: 350px;
+    }
+    /* --- Fun Facts Feature (Groot & Strak) --- */
+
+    .fun-fact-card {
+        position: absolute;
+        bottom: 140%;
+        left: 0;
+        width: 450px; /* Mooie grote breedte */
+        background: white;
+        padding: 2rem;
+        border-radius: 1.5rem;
+        box-shadow: 0 25px 50px -12px rgba(30, 58, 138, 0.25);
+        border: 1px solid var(--blue-100);
+
+        /* Zorgt dat de blauwe balk (card-decoration) binnen de ronde hoeken blijft */
+        overflow: hidden;
+
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(20px) scale(0.95);
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        z-index: 100;
+    }
+
+    /* De decoratieve balk bovenin die nu netjes 'binnen' blijft */
+    .card-decoration {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 6px; /* Iets dikker voor de balans */
+        background: var(--gradient-primary);
+        border-radius: 0; /* Niet meer nodig door overflow:hidden op de ouder */
+    }
+
+    .fun-fact-card h4 {
+        color: var(--blue-600);
+        margin-top: 0.5rem; /* Ruimte maken voor de balk */
+        margin-bottom: 1.25rem;
+        font-size: 1.3rem;
+        font-weight: 800;
+    }
+
+    .fact-list li {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: flex-start;
+        gap: 0.75rem;
+        color: var(--gray-700);
+    }
+}
+
+/* Hover Effect: Toon de kaart */
+.fun-fact-wrapper:hover .fun-fact-card {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+}
+
+/* Styling van de inhoud */
+.fun-fact-card h4 {
+    color: var(--blue-600);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.fact-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.fact-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+    color: var(--gray-600);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.fact-list li:last-child {
+    margin-bottom: 0;
+}
+
+.fact-emoji {
+    font-size: 1.1rem;
+    min-width: 1.5rem;
+}
+
+/* Subtiel decoratief lijntje bovenin */
+.card-decoration {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gradient-primary);
+    border-radius: 1.5rem 1.5rem 0 0;
+}
+
+/* Animatie voor het lampje */
+@keyframes wiggle {
+    0%, 100% { transform: rotate(-10deg); }
+    50% { transform: rotate(10deg); }
+}
+
+/* Mobiele aanpassing: Zorg dat hij niet van het scherm valt */
+@media (max-width: 768px) {
+    .fun-fact-card {
+        width: 280px;
+        left: 50%;
+        transform: translateX(-50%) translateY(20px) scale(0.95);
+    }
+
+    .fun-fact-wrapper:hover .fun-fact-card {
+        transform: translateX(-50%) translateY(0) scale(1);
+    }
+
+    .fun-fact-card::after {
+        left: 50%;
+        margin-left: -10px;
+    }
 }
 
 .image-wrapper {
@@ -1093,4 +1308,67 @@ body {
     /* Center text on mobile for better flow */
     .about-text { text-align: center; }
     .contact-item { flex-direction: column; text-align: center; }
+}
+
+/* --- Projecten Pagina Filters --- */
+.filter-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 1rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.filter-group {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.filter-label {
+    font-weight: 700;
+    color: var(--gray-900);
+}
+
+.filter-buttons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.filter-btn {
+    padding: 0.5rem 1.25rem;
+    border: 1px solid var(--gray-200);
+    background: white;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.filter-btn.active, .filter-btn:hover {
+    background: var(--gradient-primary);
+    color: white;
+    border-color: transparent;
+}
+
+.filter-select {
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    border: 1px solid var(--gray-200);
+    background: var(--gray-50);
+    outline: none;
+}
+
+/* Animatie voor kaarten die verdwijnen */
+.project-card.hidden {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .filter-wrapper { flex-direction: column; align-items: flex-start; }
 }

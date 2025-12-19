@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Projecten | Maarten de Klerk</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="projects-page">
+
+<nav class="navbar scrolled" id="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="nav-logo">Maarten de Klerk</a>
+        <div class="nav-menu">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="projects.html" class="nav-link active">Projecten</a>
+            <div class="nav-actions">
+                <a href="index.html#contact" class="nav-btn">Samenwerken</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<section class="section projects-header">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Mijn Portfolio</h2>
+            <div class="section-line"></div>
+            <p class="section-description">Ontdek mijn volledige verzameling van projecten, gefilterd op expertise en tijdlijn.</p>
+        </div>
+
+        <div class="filter-wrapper">
+            <div class="filter-group">
+                <span class="filter-label">Categorie:</span>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-category="all">Alles</button>
+                    <button class="filter-btn" data-category="web">Web Dev</button>
+                    <button class="filter-btn" data-category="uiux">UI/UX Design</button>
+                    <button class="filter-btn" data-category="mobile">Mobile App</button>
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <span class="filter-label">Jaar:</span>
+                <select id="yearFilter" class="filter-select">
+                    <option value="all">Alle jaren</option>
+                    <option value="2025">2025</option>
+                    <option value="2024">2024</option>
+                    <option value="2023">2023</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="projects-grid" id="projectsGrid">
+            <div class="project-card" data-category="web" data-year="2025">
+                <div class="project-image">
+                    <img src="assets/kleingenot.png" alt="Klein Genot">
+                    <div class="project-overlay">
+                        <a href="https://fog-shirt-19121318.figma.site" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <div class="project-category">Web Development • 2025</div>
+                    <h3>Klein Genot</h3>
+                    <p>Website ontwerp voor een unieke sfeerbeleving.</p>
+                </div>
+            </div>
+
+            <div class="project-card" data-category="web" data-year="2025">
+                <div class="project-image">
+                    <img src="assets/autogarage.png" alt="Autogarage">
+                    <div class="project-overlay">
+                        <a href="https://repair-pager-88175855.figma.site" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <div class="project-category">Web Development • 2025</div>
+                    <h3>Autogarage</h3>
+                    <p>Functioneel design gericht op conversie en service.</p>
+                </div>
+            </div>
+
+            <div class="project-card" data-category="web" data-year="2025">
+                <div class="project-image">
+                    <img src="assets/brightnews.png" alt="BrightNews">
+                    <div class="project-overlay">
+                        <a href="https://lip-rinse-57460552.figma.site" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <div class="project-category">Web Development • 2025</div>
+                    <h3>BrightNews</h3>
+                    <p>Nieuwsportaal met een frisse, heldere uitstraling.</p>
+                </div>
+            </div>
+
+            <div class="project-card" data-category="web" data-year="2025">
+                <div class="project-image">
+                    <img src="assets/barbermo.png" alt="BarberMo">
+                    <div class="project-overlay">
+                        <a href="https://emblem-most-96513317.figma.site" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <div class="project-category">Web Development • 2025</div>
+                    <h3>BarberMo</h3>
+                    <p>Trendy website voor een barbershop met oog voor detail.</p>
+                </div>
+            </div>
+        </div>
+
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

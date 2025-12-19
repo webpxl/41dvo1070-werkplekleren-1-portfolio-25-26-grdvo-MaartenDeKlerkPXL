@@ -125,21 +125,22 @@ const contactForm = document.getElementById('contactForm');
 contactForm.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    // Get form data
-    const formData = {
-        name: document.getElementById('name').value,
-        email: document.getElementById('email').value,
-        message: document.getElementById('message').value
-    };
+    // Haal de waarden uit het formulier
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
 
-    console.log('Form submitted:', formData);
+    // Formatteer de mail inhoud
+    const subject = encodeURIComponent(`Portfolio Contact: Bericht van ${name}`);
+    const body = encodeURIComponent(`Naam: ${name}\nE-mail: ${email}\n\nBericht:\n${message}`);
 
-    // Show success message (you can customize this)
-    alert('Thank you for your message! I will get back to you soon.');
+    // Open de mail client van de gebruiker
+    window.location.href = `mailto:maarten.deklerk@student.pxl.be?subject=${subject}&body=${body}`;
 
-    // Reset form
+    // Optionele succesmelding
     contactForm.reset();
 });
+
 
 // Add hover effect to project cards
 const projectCards = document.querySelectorAll('.project-card');
@@ -270,4 +271,48 @@ document.addEventListener('mousemove', (e) => {
 // Console message for developers
 console.log('%c👋 Hello Developer!', 'font-size: 20px; color: #a855f7; font-weight: bold;');
 console.log('%cInterested in the code? Let\'s connect!', 'font-size: 14px; color: #ec4899;');
-console.log('%cEmail: alex@example.com', 'font-size: 12px; color: #6b7280;');
+console.log('%cEmail: maarten.deklerk@student.pxl.be', 'font-size: 12px; color: #6b7280;');
+
+
+// Filter Functionaliteit
+document.addEventListener('DOMContentLoaded', () => {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const yearFilter = document.getElementById('yearFilter');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    function filterProjects() {
+        const activeCategory = document.querySelector('.filter-btn.active').dataset.category;
+        const activeYear = yearFilter ? yearFilter.value : 'all';
+
+        projectCards.forEach(card => {
+            const cardCategory = card.dataset.category;
+            const cardYear = card.dataset.year;
+
+            const categoryMatch = activeCategory === 'all' || cardCategory === activeCategory;
+            const yearMatch = activeYear === 'all' || cardYear === activeYear;
+
+            if (categoryMatch && yearMatch) {
+                card.classList.remove('hidden');
+                // Optioneel: voeg een fade-in animatie toe
+                card.style.opacity = "0";
+                setTimeout(() => { card.style.opacity = "1"; }, 10);
+            } else {
+                card.classList.add('hidden');
+            }
+        });
+    }
+
+    // Luister naar categorie knoppen
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            filterProjects();
+        });
+    });
+
+    // Luister naar jaar dropdown
+    if (yearFilter) {
+        yearFilter.addEventListener('change', filterProjects);
+    }
+});
