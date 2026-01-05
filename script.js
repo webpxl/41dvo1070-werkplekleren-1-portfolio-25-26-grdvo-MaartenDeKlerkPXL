@@ -103,3 +103,5 @@ filterBtns.forEach(btn => {
 if (yearFilter) {
     yearFilter.addEventListener('change', applyFilters);
 }
+
+// 4.3 final 1.0 commit
