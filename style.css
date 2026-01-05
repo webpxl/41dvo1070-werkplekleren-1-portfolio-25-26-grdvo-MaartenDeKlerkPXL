@@ -131,6 +131,7 @@ body {
     transition: all 0.3s ease;
     font-family: inherit;
     font-weight: 600;
+    text-decoration: none !important;
 }
 
 /* Hover effect */
@@ -138,6 +139,7 @@ body {
     background: rgba(255, 255, 255, 0.1);
     color: white;
     transform: translateY(-2px);
+    text-decoration: none !important;
 }
 
 /* Specifiek voor taal tekst */
@@ -149,6 +151,19 @@ body {
 /* Styling als de navbar gescrolld is (witte achtergrond) */
 .navbar.scrolled .tool-btn {
     color: var(--gray-600);
+}
+/* Zorg dat de tekst wit blijft als je over de knop hovert in de witte navbar */
+.navbar.scrolled .nav-btn:hover {
+    background: var(--gradient-hover) !important; /* Gebruikt de iets donkerdere blauwe gradient */
+    color: #ffffff !important; /* Forceert witte tekst */
+    text-decoration: none;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(6, 182, 212, 0.4);
+}
+
+/* Voor de zekerheid ook voor de normale toestand in de scrolled navbar */
+.navbar.scrolled .nav-btn {
+    color: #ffffff !important;
 }
 
 .navbar.scrolled .tool-btn:hover {
@@ -1371,4 +1386,160 @@ body {
 
 @media (max-width: 768px) {
     .filter-wrapper { flex-direction: column; align-items: flex-start; }
+}
+
+/* Zorg dat deze variabelen in je CSS staan voor een mooi contrast */
+body.dark-mode {
+    --gray-50: #020617;   /* Achtergrond */
+    --gray-900: #ffffff;  /* Titels */
+    --gray-700: #cbd5e1;  /* Tekst */
+    background-color: var(--gray-50);
+    color: var(--gray-700);
+}
+
+/* Zorg dat de kaarten ook inkleuren */
+body.dark-mode .skill-card,
+body.dark-mode .project-card,
+body.dark-mode .about-section {
+    background-color: #0f172a;
+    border-color: rgba(255,255,255,0.1);
+}
+
+/* Specifieke secties die in de lichte versie wit waren */
+body.dark-mode .about-section,
+body.dark-mode .projects-section,
+body.dark-mode .skill-card,
+body.dark-mode .project-card,
+body.dark-mode .contact-content,
+body.dark-mode .filter-wrapper,
+body.dark-mode .tech-tag,
+body.dark-mode .fun-fact-card,
+body.dark-mode .fun-fact-btn {
+    background-color: var(--dark-bg);
+    color: white;
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Tekstkleuren in kaarten */
+body.dark-mode .about-text h3,
+body.dark-mode .skill-card h3,
+body.dark-mode .project-content h3,
+body.dark-mode .contact-info h3,
+body.dark-mode .filter-label {
+    color: white;
+}
+
+/* Navbar aanpassing in dark mode */
+body.dark-mode .navbar.scrolled {
+    background: rgba(2, 6, 23, 0.9);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .navbar.scrolled .nav-link,
+body.dark-mode .navbar.scrolled .tool-btn {
+    color: var(--gray-300);
+}
+
+/* Formulier velden */
+body.dark-mode .form-group input,
+body.dark-mode .form-group textarea {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+/* Smooth transition voor het wisselen */
+body {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+/* --- Contact Sectie Dark Mode --- */
+body.dark-mode .contact-section {
+    background-color: var(--darker-bg); /* De buitenste achtergrond */
+}
+
+body.dark-mode .contact-content {
+    background-color: var(--dark-bg); /* De witte kaart wordt nu donkerblauw */
+    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.5); /* Donkere schaduw voor diepte */
+    border: 1px solid rgba(255, 255, 255, 0.05); /* Subtiel randje */
+}
+
+/* Tekstkleuren binnen de contact kaart */
+body.dark-mode .contact-info h3,
+body.dark-mode .contact-item div,
+body.dark-mode .contact-item a,
+body.dark-mode .form-group label {
+    color: #ffffff;
+}
+
+body.dark-mode .contact-info p,
+body.dark-mode .contact-label {
+    color: var(--gray-400); /* Iets zachter grijs voor de omschrijvingen */
+}
+
+/* Invoervelden van het formulier */
+body.dark-mode .form-group input,
+body.dark-mode .form-group textarea {
+    background-color: rgba(255, 255, 255, 0.05); /* Licht transparant */
+    border-color: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+body.dark-mode .form-group input:focus,
+body.dark-mode .form-group textarea:focus {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: var(--blue-500);
+}
+/* Dark Mode voor Filters */
+body.dark-mode .filter-wrapper {
+    background-color: var(--dark-bg);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .filter-label {
+    color: white;
+}
+
+body.dark-mode .filter-btn {
+    background-color: transparent;
+    border-color: var(--gray-700);
+    color: var(--gray-300);
+}
+
+body.dark-mode .filter-btn.active {
+    background: var(--gradient-primary);
+    color: white;
+    border-color: transparent;
+}
+
+body.dark-mode .filter-select {
+    background-color: var(--darker-bg);
+    color: white;
+    border-color: var(--gray-700);
+}
+
+/* We gebruiken een dubbele selector om de specificiteit te verhogen */
+.navbar.scrolled .nav-container .nav-btn:hover,
+body.projects-page .navbar .nav-container .nav-btn:hover {
+    /* 1. De kleur van het icoontje (helder cyaan-blauw) */
+    background-color: #00b4d8 !important;
+    background: #00b4d8 !important;
+
+    /* 2. BELANGRIJK: Zet de gradient definitief uit */
+    background-image: none !important;
+
+    /* 3. Zorg dat de tekst wit blijft */
+    color: #ffffff !important;
+
+    /* 4. Een bijpassende schaduw */
+    box-shadow: 0 8px 25px rgba(0, 180, 216, 0.5) !important;
+
+    /* 5. Reset andere eigenschappen */
+    text-decoration: none !important;
+    opacity: 1 !important;
+    transform: translateY(-3px) !important;
+}
+
+/* Zorg dat de knop in normale toestand (zonder hover) ook wit is in de witte balk */
+.navbar.scrolled .nav-container .nav-btn {
+    color: #ffffff !important;
 }
