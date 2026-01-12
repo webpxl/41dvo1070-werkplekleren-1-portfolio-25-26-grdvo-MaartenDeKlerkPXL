@@ -104,4 +104,44 @@ if (yearFilter) {
     yearFilter.addEventListener('change', applyFilters);
 }
 
+    const favicon = document.getElementById('favicon');
+    let angle = 0;
+    let direction = 1;
+    let waveCount = 0;
+    const maxWaves = 6; // Hoeveel keer hij heen en weer gaat (3 volledige zwaaien)
+
+    function animateFavicon() {
+    // Verander de hoek (angle) voor een vloeiend effect
+    angle += (2 * direction);
+
+    // Maak de SVG met de huidige hoek
+    const svg = `<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 transform=%22rotate(${angle} 50 80)%22>👋</text></svg>`;
+    favicon.href = `data:image/svg+xml,${svg}`;
+
+    // Keer de richting om bij de uiterste punten
+    if (angle >= 15 || angle <= -15) {
+    direction *= -1;
+    waveCount++;
+}
+
+    // Stop na een aantal zwaaien en wacht even
+    if (waveCount >= maxWaves) {
+    waveCount = 0;
+    angle = 0; // Terug naar het midden
+    // Zet het handje recht
+    favicon.href = `data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👋</text></svg>`;
+
+    setTimeout(startWaving, 4000); // Wacht 4 seconden voor de volgende zwaai
+} else {
+    requestAnimationFrame(animateFavicon);
+}
+}
+
+    function startWaving() {
+    requestAnimationFrame(animateFavicon);
+}
+
+    // Start de eerste keer
+    startWaving();
+
 // 4.3 final 1.0 commit
