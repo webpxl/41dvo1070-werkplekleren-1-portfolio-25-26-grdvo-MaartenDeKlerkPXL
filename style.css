@@ -1543,5 +1543,31 @@ body.projects-page .navbar .nav-container .nav-btn:hover {
 .navbar.scrolled .nav-container .nav-btn {
     color: #ffffff !important;
 }
+/* --- Custom Scrollbar --- */
+/* Breedte van de scrollbar */
+::-webkit-scrollbar {
+    width: 12px;
+}
 
-/*4.3 final 1.0 commit*/
+/* Achtergrond van de scrollbar (de track) */
+::-webkit-scrollbar-track {
+    background: var(--gray-100);
+}
+
+/* Het bewegende deel (de thumb) */
+::-webkit-scrollbar-thumb {
+    background: var(--gradient-primary); /* Gebruikt jouw blauw-cyaan verloop */
+    border-radius: 10px;
+    border: 3px solid var(--gray-100); /* Zorgt voor een mooie witruimte rondom */
+}
+
+/* Kleur als je eroverheen hoovert */
+::-webkit-scrollbar-thumb:hover {
+    background: var(--gradient-hover);
+}
+
+/* Voor Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--blue-600) var(--gray-100);
+}

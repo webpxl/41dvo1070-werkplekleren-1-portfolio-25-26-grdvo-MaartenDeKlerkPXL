@@ -144,4 +144,27 @@ if (yearFilter) {
     // Start de eerste keer
     startWaving();
 
-// 4.3 final 1.0 commit
+// --- 5. CONTACT FORMULIER MET CONFETTI ---
+const contactForm = document.getElementById('contactForm');
+
+if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+        // We voorkomen even het herladen van de pagina om de confetti te zien
+        // In een echte situatie stuur je hier je data naar een backend
+        e.preventDefault();
+
+        // Confetti afschieten!
+        confetti({
+            particleCount: 150,
+            spread: 70,
+            origin: { y: 0.6 },
+            colors: ['#2563eb', '#06b6d4', '#ffffff'] // Blauw en cyaan uit jouw palet
+        });
+
+        // Toon een simpel bedankje (je kunt dit later vervangen door een mooie modal)
+        setTimeout(() => {
+            alert('Bedankt voor je bericht! Ik neem zo snel mogelijk contact met je op. 👋');
+            contactForm.reset(); // Maak het formulier weer leeg
+        }, 500);
+    });
+}
