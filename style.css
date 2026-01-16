@@ -7,6 +7,7 @@
 
 :root {
     /* Main Blue Palette */
+    --indigo-500: #6366f1;
     --blue-50: #eff6ff;
     --blue-100: #dbeafe;
     --blue-200: #bfdbfe;
@@ -32,6 +33,10 @@
     --gray-600: #475569;
     --gray-700: #334155;
     --gray-900: #0f172a;
+    --cyan-600: #0891b2; /* VOEG DEZE TOE */
+    --blue-400: #60a5fa;
+
+
 
     /* Functional Colors */
     --gradient-primary: linear-gradient(135deg, var(--blue-600), var(--cyan-500));
@@ -1765,18 +1770,153 @@ body.dark-mode .stat-card p {
             "duurzaam";
         }
     }
+    /* --- VOLLEDIGE DARK MODE REPARATIE --- */
+    body.dark-mode {
+        --gray-50: #020617;   /* De diepdonkere achtergrond */
+        --gray-100: #0f172a;  /* DIT WAS DE FOUT: Maakt secties zoals Eindreflectie nu donkerblauw */
+        --gray-900: #ffffff;  /* Witte titels */
+        --gray-700: #cbd5e1;  /* Lichtgrijze tekst */
+        background-color: var(--gray-50);
+        color: var(--gray-700);
+    }
 
-    /* Dark Mode fix: Maak de tekst in witte X-factor kaarten donkerder */
+    /* Zorg dat de secties met een inline achtergrondstijl ook mee veranderen */
+    body.dark-mode .section[style*="var(--gray-100)"] {
+        background-color: var(--gray-100) !important;
+    }
+
+    /* --- X-FACTOR KAARTJES CONTRAST --- */
+    /* Je gaf aan dat de kaartjes zelf wit moeten blijven, maar de tekst donkerder */
     body.dark-mode .x-card {
-        background-color: #ffffff !important; /* Forceer witte achtergrond voor de kaartjes */
+        background-color: #ffffff !important;
+        border-color: #e2e8f0 !important;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4) !important;
     }
 
     body.dark-mode .x-card h4 {
-        color: #000; !important; /* Maak titels diep donkerblauw/zwart */
-        font-weight: 800;
+        color: #0f172a !important; /* Diep donkerblauwe titels op het witte kaartje */
     }
 
     body.dark-mode .x-card p {
-        color: #000 !important; /* Maak de beschrijvende tekst donkergrijs (Slate 800) */
+        color: #1e293b !important; /* Donkergrijze tekst op het witte kaartje */
         font-weight: 500;
     }}
+/* --- DARK MODE CONFIGURATIE --- */
+body.dark-mode {
+    --gray-50: #020617;   /* De algemene achtergrond */
+    --gray-100: #0f172a;  /* Maakt de achtergrond van "Eindreflectie" donkerblauw */
+    --gray-900: #ffffff;  /* Witte titels voor de meeste secties */
+    --gray-700: #cbd5e1;  /* Lichtgrijze tekst */
+    background-color: var(--gray-50);
+    color: var(--gray-700);
+}
+
+/* Fix voor secties die een inline achtergrondstijl hebben in HTML */
+body.dark-mode .section[style*="var(--gray-100)"] {
+    background-color: var(--gray-100) !important;
+}
+
+/* --- X-FACTOR KAARTJES: WITTE KAART MET DONKERE TEKST --- */
+body.dark-mode .x-card {
+    background-color: #ffffff !important; /* Kaart blijft wit */
+    border-color: #e2e8f0 !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* Forceer donkere tekstkleuren op de witte kaartjes */
+body.dark-mode .x-card h4 {
+    color: #0f172a !important; /* Diep donkerblauw voor titels */
+}
+
+body.dark-mode .x-card p {
+    color: #1e293b !important; /* Donkergrijs voor leesbare tekst */
+}
+
+/* Zorg dat iconen ook goed zichtbaar blijven op wit */
+body.dark-mode .x-card .skill-icon i {
+    color: #ffffff !important;
+}
+
+/* --- ROOT VARIABELEN (INDIGO FIX) --- */
+:root {
+    /* ... andere kleuren ... */
+    --indigo-500: #6366f1;
+    --indigo-600: #4338ca;
+    --blue-400: #60a5fa;
+    --cyan-600: #0891b2;
+}
+
+/* --- X-FACTOR LAYOUT --- */
+.x-factor-container {
+    display: grid;
+    grid-template-columns: 1fr 1.8fr 1fr;
+    grid-template-areas:
+        "passie       center  ondernemend"
+        "samenwerken  center  multi"
+        ".            duurzaam .";
+    gap: 30px;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.x-factor-center {
+    grid-area: center;
+    display: flex;
+    justify-content: center;
+}
+
+.x-factor-img {
+    max-width: 35rem;
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 15px 30px rgba(0,0,0,0.15));
+}
+
+.x-passie { grid-area: passie; text-align: right; }
+.x-samenwerken { grid-area: samenwerken; text-align: right; }
+.x-ondernemend { grid-area: ondernemend; text-align: left; }
+.x-multi { grid-area: multi; text-align: left; }
+.x-duurzaam { grid-area: duurzaam; text-align: center; }
+
+/* --- RESPONSIVE FIX (VERBERG FOTO OP MOBIEL) --- */
+@media (max-width: 992px) {
+    .x-factor-center {
+        display: none !important; /* Verbergt de PXL X-factor afbeelding op mobiel/tablet */
+    }
+    .x-factor-container {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "passie"
+            "ondernemend"
+            "samenwerken"
+            "multi"
+            "duurzaam";
+        gap: 20px;
+    }
+    .x-card {
+        text-align: center !important;
+    }
+    .x-card .skill-icon {
+        margin: 0 auto !important;
+    }
+}
+
+/* --- DARK MODE FIX --- */
+body.dark-mode {
+    --gray-50: #020617;
+    --gray-100: #0f172a;
+    --gray-900: #ffffff;
+    --gray-700: #cbd5e1;
+}
+
+body.dark-mode .x-card {
+    background-color: #ffffff !important;
+}
+
+body.dark-mode .x-card h4 {
+    color: #0f172a !important;
+}
+
+body.dark-mode .x-card p {
+    color: #1e293b !important;
+}

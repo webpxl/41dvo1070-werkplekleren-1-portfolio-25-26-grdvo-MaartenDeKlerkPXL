@@ -2,9 +2,279 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DVO Portfolio | Maarten de Klerk</title>
 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="../style.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link id="favicon" rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👋</text></svg>">
+</head>
+<body class="portfolio-page">
+
+<nav class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="../index-en.html" class="nav-logo">Maarten de Klerk</a>
+
+        <div class="nav-menu" id="navMenu">
+            <a href="../index-en.html#home" class="nav-link">Home</a>
+            <a href="../index-en.html#about" class="nav-link">About Me</a>
+            <a href="../index-en.html#skills" class="nav-link">Skills</a>
+            <a href="../projects-en.html" class="nav-link">Projects</a>
+            <a href="index-portfolio-en.html" class="nav-link active">Portfolio</a>
+
+            <div class="nav-actions">
+                <a href="../index-en.html#contact" class="nav-btn">Hire Me</a>
+            </div>
+
+            <div class="nav-tools">
+                <a href="index-portfolio-nl.html" class="tool-btn language-toggle" aria-label="Switch to Dutch">
+                    <span style="font-size: 1.2rem;">🇳🇱</span>
+                </a>
+                <button class="tool-btn theme-toggle" aria-label="Toggle Dark Mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
+
+        <button class="nav-toggle" id="navToggle">
+            <i class="fas fa-bars"></i>
+        </button>
+    </div>
+</nav>
+
+<header class="hero" style="min-height: 40vh;">
+    <div class="hero-bg">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-3"></div>
+    </div>
+    <div class="hero-content">
+        <h1 class="hero-title" data-aos="fade-up">DVO Portfolio</h1>
+        <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="100">WPL1 Situation & Reflection</p>
+    </div>
+</header>
+
+<section class="section">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-line"></div>
+            <h2 class="section-title">DVO Profile & Learning Objectives</h2>
+            <p class="section-description">My development within the digital designer roles during Workplace Learning 1.</p>
+        </div>
+
+        <div class="skills-grid">
+            <div class="skill-card" data-aos="fade-up">
+                <div class="skill-icon icon-primary-blue"><i class="fas fa-paint-brush"></i></div>
+                <h3>The Graphic Designer</h3>
+                <p>I have proven that I can translate client wishes into a visual identity. Projects like 'Klein Genot', 'Autogarage', and 'BarberMo' have taught me to work from concept to a full design.</p>
+                <div class="skill-bar"></div>
+            </div>
+
+            <div class="skill-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="skill-icon icon-cyan"><i class="fas fa-code"></i></div>
+                <h3>The Digital Expert</h3>
+                <p>In 'BrightNews', I am working on a large-scale project featuring backend logic and AI integration for content filtering. I also learned to technically build this portfolio site from start to finish.</p>
+                <div class="skill-bar"></div>
+            </div>
+
+            <div class="skill-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="skill-icon icon-teal"><i class="fas fa-comments"></i></div>
+                <h3>The Creative Communicator</h3>
+                <p>I learned to proactively request feedback from instructors. My next step is to present projects live to others to communicate my vision even more effectively.</p>
+                <div class="skill-bar"></div>
+            </div>
+
+            <div class="skill-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="skill-icon icon-indigo"><i class="fas fa-briefcase"></i></div>
+                <h3>The Enterprising Professional</h3>
+                <p>I gained deep insight into project management: from estimating time to monitoring progress. I now better understand the effort required for a quality final product.</p>
+                <div class="skill-bar"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section" style="background: var(--gray-100);">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-line"></div>
+            <h2 class="section-title">AIM-Reflection</h2>
+        </div>
+
+        <div class="about-text">
+            <div class="stat-card" style="margin-bottom: 2rem; text-align: left;">
+                <h3 style="color: var(--blue-600);"><i class="fas fa-history"></i> Introduction</h3>
+                <p>The past semester of Workplace Learning 1 focused on creating a professional site and working with real-world projects, which I found highly engaging.</p>
+            </div>
+
+            <div class="stat-card" style="margin-bottom: 2rem; text-align: left;">
+                <h3 style="color: var(--cyan-500);"><i class="fas fa-rocket"></i> Agile (Positive)</h3>
+                <p>I loved designing and organizing projects from start to finish, aiming for maximum efficiency. This process felt natural, though I learned a great deal from it.</p>
+            </div>
+
+            <div class="stat-card" style="margin-bottom: 2rem; text-align: left;">
+                <h3 style="color: var(--teal-400);"><i class="fas fa-exclamation-triangle"></i> Less Positive (Challenges)</h3>
+                <p>While mostly positive, I sometimes faced code that didn't work perfectly. Diving deeper into the code to solve unknown issues was challenging but very educational.</p>
+            </div>
+
+            <div class="stat-card" style="margin-bottom: 2rem; text-align: left;">
+                <h3 style="color: var(--indigo-500);"><i class="fas fa-lightbulb"></i> Insights</h3>
+                <p>I gained insight into the time and effort required for web projects. I now see how I can work faster and more efficiently in the future by learning from what went less well.</p>
+            </div>
+
+            <div class="stat-card" style="text-align: left;">
+                <h3 style="color: var(--blue-700);"><i class="fas fa-trophy"></i> Mentor (Pride)</h3>
+                <p>I am very proud of my website and will show it with pride. It serves as an ideal business card that leaves a lasting impression.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-line"></div>
+            <h2 class="section-title">What do I take to WPL2?</h2>
+        </div>
+
+        <div class="row g-4 mb-5">
+            <div class="col-md-6">
+                <div class="stat-card h-100">
+                    <h3 style="color: var(--blue-600);">Learning Goals</h3>
+                    <p>I aim to ask for intermediate feedback more often. I tend to wait until something is finished, which leaves little time for major improvements.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="stat-card h-100">
+                    <h3 style="color: var(--cyan-500);">Soft Skills</h3>
+                    <p>There is room for improvement in Figma, such as using more components to create a more structured and professional design workflow.</p>
+                </div>
+            </div>
+        </div>
+
+        <h3 class="mb-4 text-center">Core Quadrants</h3>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="stat-card text-start">
+                    <h4 class="mb-3">1. Growth & Feedback</h4>
+                    <ul class="list-unstyled">
+                        <li><strong>Quality:</strong> Drive</li>
+                        <li><strong>Pitfall:</strong> Asking for help too late</li>
+                        <li><strong>Challenge:</strong> Regular check-ins</li>
+                        <li><strong>Allergy:</strong> Passivity</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="stat-card text-start">
+                    <h4 class="mb-3">2. Technical Design</h4>
+                    <ul class="list-unstyled">
+                        <li><strong>Quality:</strong> Eye for detail</li>
+                        <li><strong>Pitfall:</strong> Lack of structure</li>
+                        <li><strong>Challenge:</strong> Component-based design</li>
+                        <li><strong>Allergy:</strong> Sloppiness</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="stat-card text-start">
+                    <h4 class="mb-3">3. Creativity</h4>
+                    <ul class="list-unstyled">
+                        <li><strong>Quality:</strong> Innovative drive</li>
+                        <li><strong>Pitfall:</strong> Over-engineering (too many extras)</li>
+                        <li><strong>Challenge:</strong> Focus on essence</li>
+                        <li><strong>Allergy:</strong> Standard solutions</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section contact-section">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-line"></div>
+            <h2 class="section-title">Reflection on X-factor</h2>
+        </div>
+        <div class="x-factor-container">
+            <div class="x-factor-center">
+                <img src="../assets/PXL-X-factor.jpg" alt="PXL X-factor" class="x-factor-img" style="max-width: 35rem;">
+            </div>
+
+            <div class="x-card x-passie">
+                <div class="skill-icon icon-primary-blue"><i class="fas fa-heart"></i></div>
+                <h4>(Em)passion</h4>
+                <p>My passion is designing beautiful, user-friendly websites that stay with you after you leave.</p>
+            </div>
+
+            <div class="x-card x-samenwerken">
+                <div class="skill-icon icon-teal"><i class="fas fa-users"></i></div>
+                <h4>Collaboration</h4>
+                <p>I worked in a great group where communication and improving each other's work went smoothly.</p>
+            </div>
+
+            <div class="x-card x-ondernemend">
+                <div class="skill-icon icon-cyan"><i class="fas fa-lightbulb"></i></div>
+                <h4>Enterprising & Innovative</h4>
+                <p>I added many extras to the site that provide fun, innovative effects beyond the basic requirements.</p>
+            </div>
+
+            <div class="x-card x-multi">
+                <div class="skill-icon icon-indigo"><i class="fas fa-random"></i></div>
+                <h4>Multi- & Disciplinarity</h4>
+                <p>I learned to view and solve problems from both a graphic design (visual) and front-end (technical) perspective.</p>
+            </div>
+
+            <div class="x-card x-duurzaam">
+                <div class="skill-icon icon-sky"><i class="fas fa-leaf"></i></div>
+                <h4>Sustainable</h4>
+                <p>I regularly work with templates so they can be reused for faster and better results in the future.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h3 class="footer-title">Maarten de Klerk</h3>
+                <p>Creative designer with a passion for designing beautiful and functional web experiences.</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="../index-en.html#about">About Me</a></li>
+                    <li><a href="../index-en.html#skills">Skills</a></li>
+                    <li><a href="../projects-en.html">Projects</a></li>
+                    <li><a href="../index-en.html#contact">Contact</a></li>
+                    <li><a href="index-portfolio-en.html">Portfolio</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Follow Me</h4>
+                <div class="footer-social">
+                    <a href="https://github.com/MaartenDeKlerkPXL" target="_blank" rel="noopener" class="footer-social-link"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/maarten-deklerk0123/" target="_blank" rel="noopener" class="footer-social-link"><i class="fab fa-linkedin"></i></a>
+                    <a href="mailto:maarten.deklerk@student.pxl.be" class="footer-social-link"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>Made with <i class="fas fa-code"></i> and <i class="fas fa-coffee"></i> by Maarten de Klerk</p>
+            <p>© 2025 All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="../script.js"></script>
+<script>AOS.init({ duration: 1000, once: true });</script>
 </body>
 </html>
