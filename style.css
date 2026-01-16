@@ -176,35 +176,84 @@ body {
     color: var(--blue-600);
     border-color: var(--blue-100);
 }
-
-/* Mobiele aanpassingen */
+/* --- Mobiele aanpassingen (FIXED) --- */
 @media (max-width: 768px) {
+    /* De knop om het menu te openen */
+    .nav-toggle {
+        display: block;
+        position: relative;
+        z-index: 2001; /* Zorg dat deze ALTIJD bovenop ligt */
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        color: white; /* Wit op de homepage hero */
+        cursor: pointer;
+    }
+
+    /* Als je naar beneden scrollt, maak de toggle donker */
+    .navbar.scrolled .nav-toggle {
+        color: var(--gray-900);
+    }
+
+    /* Het uitklapmenu zelf */
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;      /* Volledige breedte */
+        height: 100vh;     /* Volledige hoogte */
+        background-color: #0f172a; /* Massief donkerblauw (geen transparantie) */
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+
+        /* Verberg het menu standaard buiten beeld */
+        transform: translateY(-100%);
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 2000; /* Hoog genoeg om over alles heen te vallen */
+
+        /* Zekerheid: verberg het ook visueel als het dicht is */
+        visibility: hidden;
+    }
+
+    /* Wanneer het menu open is */
+    .nav-menu.active {
+        transform: translateY(0);
+        visibility: visible;
+    }
+
+    /* Styling van de links in het mobiele menu */
+    .nav-menu .nav-link {
+        font-size: 1.5rem;
+        color: white !important;
+        padding: 0.5rem 0;
+    }
+
+    /* Zorg dat de actieknoppen (taal/darkmode) ook netjes staan */
     .nav-actions {
         flex-direction: column;
-        align-items: flex-start;
         border-left: none;
         padding-left: 0;
         margin-left: 0;
-        margin-top: 1rem;
         gap: 1.5rem;
         width: 100%;
-    }
-
-    .nav-btn {
-        width: 100%;
-        text-align: center;
+        align-items: center;
     }
 
     .nav-tools {
+        justify-content: center;
         width: 100%;
-        justify-content: flex-start;
     }
+}
 
     .tool-btn {
         color: white; /* Op mobiel is het menu donker */
         border: 1px solid rgba(255,255,255,0.1);
     }
-}
+
 
 /* Naam linksboven styling */
 .nav-logo {
@@ -1919,4 +1968,23 @@ body.dark-mode .x-card h4 {
 
 body.dark-mode .x-card p {
     color: #1e293b !important;
+}
+
+/* --- MOBIELE DARK MODE FIX VOOR X-FACTOR --- */
+@media (max-width: 992px) {
+    /* Maak de kaartjes donker op mobiel */
+    body.dark-mode .x-card {
+        background-color: var(--dark-bg) !important; /* Donkerblauwe achtergrond */
+        border-color: rgba(255, 255, 255, 0.1) !important; /* Subtiel randje */
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3) !important;
+    }
+
+    /* Maak de tekst weer wit/licht op mobiel */
+    body.dark-mode .x-card h4 {
+        color: #ffffff !important;
+    }
+
+    body.dark-mode .x-card p {
+        color: var(--gray-300) !important;
+    }
 }
