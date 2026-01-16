@@ -1649,3 +1649,134 @@ body.projects-page .navbar .nav-container .nav-btn:hover {
         transform: translate(-50%, -50%) scale(1) !important;
     }
 }
+
+body.dark-mode {
+    --gray-50: #020617;   /* Diep donkerblauw/zwart */
+    --gray-100: #0f172a;  /* Iets lichter donkerblauw voor secties */
+    --gray-900: #ffffff;  /* Witte titels */
+    --gray-700: #cbd5e1;  /* Lichtgrijze tekst */
+    background-color: var(--gray-50);
+    color: var(--gray-700);
+}
+
+/* Zorg dat alle kaarten, inclusief de stat-card, donker worden */
+body.dark-mode .skill-card,
+body.dark-mode .project-card,
+body.dark-mode .about-section,
+body.dark-mode .contact-content,
+body.dark-mode .stat-card {
+    background-color: var(--dark-bg) !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+    color: white;
+}
+
+/* Zorg dat de tekst en labels in de stat-card leesbaar blijven */
+body.dark-mode .stat-label {
+    color: var(--blue-300); /* Maak de labels lichtblauw voor beter contrast */
+}
+
+body.dark-mode .stat-card p {
+    color: var(--gray-300); /* De beschrijvende tekst iets lichter grijs */
+}
+
+/* --- X-FACTOR LAYOUT --- */
+.x-factor-container {
+    display: grid;
+    /* Drie kolommen: links, breed midden voor de foto, rechts */
+    grid-template-columns: 1fr 1.8fr 1fr;
+    grid-template-areas:
+        "passie       center  ondernemend"
+        "samenwerken  center  multi"
+        ".            duurzaam .";
+    gap: 30px;
+    align-items: center;
+    margin-top: 50px;
+
+    .x-factor-center {
+        grid-area: center;
+        display: flex;
+        justify-content: center;
+    }
+
+    .x-factor-img {
+        max-width: 35rem;
+        filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.1));
+        border-radius: 50%; /* Maakt de afbeelding rond als dat bij het logo past */
+    }
+
+    .x-card {
+        background: white;
+        padding: 20px;
+        border-radius: 1.5rem;
+        border: 1px solid var(--gray-100);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        text-align: center;
+        transition: transform 0.3s ease;
+    }
+
+    .x-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .x-card h4 {
+        font-size: 1.1rem;
+        font-weight: 700;
+        margin: 10px 0;
+        color: var(--gray-900);
+    }
+
+    .x-card p {
+        font-size: 0.9rem;
+        margin-bottom: 0;
+    }
+
+    /* Positionering per kaart */
+
+    .x-passie {
+        grid-area: passie;
+    }
+
+    .x-ondernemend {
+        grid-area: ondernemend;
+    }
+
+    .x-samenwerken {
+        grid-area: samenwerken;
+    }
+
+    .x-multi {
+        grid-area: multi;
+    }
+
+    .x-duurzaam {
+        grid-area: duurzaam;
+    }
+
+    /* Mobiele weergave (alles onder elkaar) */
+    @media (max-width: 992px) {
+        .x-factor-container {
+            grid-template-columns: 1fr;
+            grid-template-areas:
+            "center"
+            "passie"
+            "ondernemend"
+            "samenwerken"
+            "multi"
+            "duurzaam";
+        }
+    }
+
+    /* Dark Mode fix: Maak de tekst in witte X-factor kaarten donkerder */
+    body.dark-mode .x-card {
+        background-color: #ffffff !important; /* Forceer witte achtergrond voor de kaartjes */
+    }
+
+    body.dark-mode .x-card h4 {
+        color: #000; !important; /* Maak titels diep donkerblauw/zwart */
+        font-weight: 800;
+    }
+
+    body.dark-mode .x-card p {
+        color: #000 !important; /* Maak de beschrijvende tekst donkergrijs (Slate 800) */
+        font-weight: 500;
+    }}
