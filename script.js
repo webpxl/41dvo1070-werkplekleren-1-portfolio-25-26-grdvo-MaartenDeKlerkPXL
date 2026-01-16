@@ -168,3 +168,28 @@ if (contactForm) {
         }, 500);
     });
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Leraar Feedback: Maak Wist-je-dat klikbaar i.p.v. hover
+    const factBtn = document.querySelector('.fun-fact-btn');
+    const factCard = document.querySelector('.fun-fact-card');
+
+    if (factBtn && factCard) {
+        factBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            factCard.classList.toggle('visible');
+        });
+
+        // Sluit de kaart als je ergens anders klikt
+        document.addEventListener('click', () => {
+            factCard.classList.remove('visible');
+        });
+    }
+});
+
+// Sluit de kaart als je ergens anders klikt (al aanwezig in je eerdere script)
+document.addEventListener('click', (e) => {
+    if (funFactCard && !funFactCard.contains(e.target) && !funFactBtn.contains(e.target)) {
+        funFactCard.classList.remove('visible');
+    }
+});

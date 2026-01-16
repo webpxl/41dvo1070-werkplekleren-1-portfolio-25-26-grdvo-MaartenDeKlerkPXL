@@ -1,4 +1,4 @@
-/* Reset & Base Styles */
+/*/* Reset & Base Styles */
 * {
     margin: 0;
     padding: 0;
@@ -531,7 +531,6 @@ body {
 
 .scroll-indicator {
     position: absolute;
-    bottom: 2.5rem;
     left: 50%;
     transform: translateX(-50%);
     font-size: 1.5rem;
@@ -1515,6 +1514,140 @@ body.dark-mode .filter-select {
     background-color: var(--darker-bg);
     color: white;
     border-color: var(--gray-700);
+}
+
+/* We gebruiken een dubbele selector om de specificiteit te verhogen */
+.navbar.scrolled .nav-container .nav-btn:hover,
+body.projects-page .navbar .nav-container .nav-btn:hover {
+    /* 1. De kleur van het icoontje (helder cyaan-blauw) */
+    background-color: #00b4d8 !important;
+    background: #00b4d8 !important;
+
+    /* 2. BELANGRIJK: Zet de gradient definitief uit */
+    background-image: none !important;
+
+    /* 3. Zorg dat de tekst wit blijft */
+    color: #ffffff !important;
+
+    /* 4. Een bijpassende schaduw */
+    box-shadow: 0 8px 25px rgba(0, 180, 216, 0.5) !important;
+
+    /* 5. Reset andere eigenschappen */
+    text-decoration: none !important;
+    opacity: 1 !important;
+    transform: translateY(-3px) !important;
+}
+
+/* Zorg dat de knop in normale toestand (zonder hover) ook wit is in de witte balk */
+.navbar.scrolled .nav-container .nav-btn {
+    color: #ffffff !important;
+}
+/* --- Custom Scrollbar --- */
+/* Breedte van de scrollbar */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+/* Achtergrond van de scrollbar (de track) */
+::-webkit-scrollbar-track {
+    background: var(--gray-100);
+}
+
+/* Het bewegende deel (de thumb) */
+::-webkit-scrollbar-thumb {
+    background: var(--gradient-primary); /* Gebruikt jouw blauw-cyaan verloop */
+    border-radius: 10px;
+    border: 3px solid var(--gray-100); /* Zorgt voor een mooie witruimte rondom */
+}
+
+/* Kleur als je eroverheen hoovert */
+::-webkit-scrollbar-thumb:hover {
+    background: var(--gradient-hover);
+}
+
+/* Voor Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--blue-600) var(--gray-100);
+}
+
+/* Maak de telefoon, email en locatie icoontjes wit binnen de contact-cirkels */
+.contact-icon i {
+    color: white !important;
+}
+
+/* Zorg dat de cirkel zelf een duidelijke kleur heeft zodat het witte icoon zichtbaar is */
+.contact-item:nth-child(1) .contact-icon { background-color: var(--blue-600) !important; }
+.contact-item:nth-child(2) .contact-icon { background-color: var(--cyan-500) !important; }
+.contact-item:nth-child(3) .contact-icon { background-color: var(--teal-400) !important; }
+
+/* FEEDBACK FIX: Wit icoon voor beter contrast */
+.contact-icon i {
+    color: white !important;
+}
+
+/* RESPONSIVE UPDATES */
+@media (max-width: 768px) {
+    /* Gebruiker Feedback: Laat de navbar niet meer 'meekomen' tijdens het scrollen op mobiel */
+    .navbar {
+        position: absolute !important;
+    }
+
+    /* Leraar Feedback: Verberg scroll-pijltje om overlapping met socials te voorkomen */
+    .scroll-indicator {
+        display: none !important;
+    }
+
+    /* Leraar Feedback: Voorkom 'scroll break' door hover uit te zetten */
+    .fun-fact-wrapper:hover .fun-fact-card {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(20px) scale(0.95);
+    }
+}
+
+/* Nieuwe class voor de klik-interactie */
+.fun-fact-card.visible {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateY(0) scale(1) !important;
+}
+
+/* --- UPDATES VOOR MOBIEL (Feedback verwerking) --- */
+@media (max-width: 768px) {
+    /* 1. Zorg dat de navbar bovenaan de pagina blijft en NIET meebeweegt (niet irritant) */
+    .navbar {
+        position: absolute !important; /* Hij staat vast aan de top van de document */
+        top: 0;
+        left: 0;
+        width: 100%;
+        opacity: 1 !important; /* Zorg dat hij altijd zichtbaar is */
+        visibility: visible !important;
+    }
+
+    /* 2. Centreer de Fun Fact kaart op het scherm */
+    .fun-fact-card {
+        position: fixed; /* Fixed zodat hij in het midden van het scherm blijft staan */
+        top: 50%;
+        left: 50%;
+        bottom: auto; /* Reset eerdere instellingen */
+        right: auto;
+        width: 90%;
+        max-width: 320px;
+        transform: translate(-50%, -50%) scale(0.95); /* Centreer precies */
+        z-index: 9999; /* Zorg dat hij overal bovenop ligt */
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Verwijder het kleine pijltje onder de kaart op mobiel omdat hij nu zweeft */
+    .fun-fact-card::after {
+        display: none;
+    }
+
+    /* De animatie voor het openen (vanuit het midden) */
+    .fun-fact-card.visible {
+        transform: translate(-50%, -50%) scale(1) !important;
+    }
 }
 
 
